@@ -16,8 +16,9 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
     
     var wkWebView: CustomWebView?
     var lastUrl: URL?
+    var lastDomainUrl: URL?
     
-    @IBOutlet weak var backgroundImage: UIImageView?
+    @IBOutlet weak var logoGoBack: UIImageView?
     @IBOutlet weak var logoImage: UIImageView?
     @IBOutlet weak var loadingOverlay: UIView?
     
@@ -28,9 +29,12 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
         theConfiguration.userContentController.add(self, name: "interOp")
         theConfiguration.mediaPlaybackRequiresUserAction = false
         theConfiguration.requiresUserActionForMediaPlayback = false
+        
+        
         wkWebView = CustomWebView(frame: self.view.frame,
                                configuration: theConfiguration)
         self.view.addSubview(wkWebView!)
+        self.view.bringSubview(toFront: logoGoBack!)
         self.view.bringSubview(toFront: loadingOverlay!)
         
         self.view.addConstraint(NSLayoutConstraint(item: self.wkWebView!, attribute: .height, relatedBy: .equal, toItem: self.view, attribute: .height, multiplier: 1, constant: 0))
@@ -52,8 +56,16 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture(_:)))
         swipeLeft.direction = UISwipeGestureRecognizerDirection.left
         self.view.addGestureRecognizer(swipeLeft)
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(logoGoBackTapped(img:)))
+        logoGoBack?.isUserInteractionEnabled = true
+        logoGoBack?.addGestureRecognizer(tapGestureRecognizer)
     }
     
+    func logoGoBackTapped(img: AnyObject)
+    {
+        wkWebView!.load(URLRequest(url: lastDomainUrl!))
+    }
     
     func respondToSwipeGesture(_ gesture: UIGestureRecognizer) {
         if let swipeGesture = gesture as? UISwipeGestureRecognizer {
@@ -89,6 +101,14 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
         fadeLogoIn()
     }
     
+    // fix for _blank
+    func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
+        if navigationAction.targetFrame == nil {
+            webView.load(navigationAction.request)
+        }
+        return nil
+    }
+    
     /* JS CALLBACK */
     func runJsOnPage(_ js: String) {
         self.wkWebView!.evaluateJavaScript(js, completionHandler: nil)
@@ -102,12 +122,19 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
     /* // END JS CALLBACK HANDLING */
     
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+       
         if let url = webView.url {
+            if url.absoluteString.lowercased().range(of: "secretrepublic.net") != nil {
+                lastDomainUrl = url
+            }
             lastUrl = url
-        }
-        UIView.animate(withDuration: 0.2, delay: 0.0, options: UIViewAnimationOptions.curveEaseIn, animations: {
-            self.loadingOverlay!.alpha = 1.0
+        
+            UIView.animate(withDuration: 0.2, delay: 0.0, options: UIViewAnimationOptions.curveEaseIn, animations: {
+                
+                self.loadingOverlay!.alpha = 1.0
+                
             }, completion: nil)
+        }
     }
     
     func handleError(_ webView: WKWebView, error: NSError) {
@@ -134,6 +161,15 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         /* JS */
         runJsOnPage("loadedFromApp()")
+        
+        if (lastDomainUrl != lastUrl) {
+            logoGoBack?.alpha = 0.8
+            print ("visible")
+        } else {
+            logoGoBack?.alpha = 0.0
+
+        }
+        
         UIView.animate(withDuration: 0.2, delay: 0.1, options: UIViewAnimationOptions.curveEaseIn, animations: {
             self.loadingOverlay!.alpha = 0.0
             

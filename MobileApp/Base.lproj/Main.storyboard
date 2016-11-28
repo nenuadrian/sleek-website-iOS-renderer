@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,6 +22,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="logo-art2" translatesAutoresizingMaskIntoConstraints="NO" id="hou-bv-oOk">
+                                <rect key="frame" x="67" y="269" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Ogb-IE-ang"/>
+                                    <constraint firstAttribute="width" constant="100" id="sAE-YF-WbF"/>
+                                </constraints>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XGg-4I-et4">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
@@ -49,13 +57,16 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="XGg-4I-et4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2A8-UR-GHC"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hou-bv-oOk" secondAttribute="bottom" id="45k-F9-Dsm"/>
                             <constraint firstItem="XGg-4I-et4" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="Imp-FY-CMR"/>
                             <constraint firstItem="XGg-4I-et4" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="Sge-EC-0eF"/>
+                            <constraint firstItem="hou-bv-oOk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-10" id="db8-hJ-cIM"/>
                             <constraint firstItem="XGg-4I-et4" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="k7G-0s-2RO"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="loadingOverlay" destination="XGg-4I-et4" id="wsM-Ah-FmM"/>
+                        <outlet property="logoGoBack" destination="hou-bv-oOk" id="Rra-p3-jYG"/>
                         <outlet property="logoImage" destination="g5m-vy-eZM" id="z6K-rS-kSy"/>
                     </connections>
                 </viewController>
