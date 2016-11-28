@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Elegant" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XGg-4I-et4">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="gDX-Wz-v7x">
+                                        <rect key="frame" x="-65" y="378" width="240" height="128"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="logo-art2" translatesAutoresizingMaskIntoConstraints="NO" id="g5m-vy-eZM">
+                                        <rect key="frame" x="-113" y="216" width="600" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="YgB-PV-fv5"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.95714350449999996" green="0.94384247470000004" blue="0.96423020290000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="g5m-vy-eZM" firstAttribute="centerY" secondItem="XGg-4I-et4" secondAttribute="centerY" id="63m-5K-GYG"/>
+                                    <constraint firstAttribute="bottom" secondItem="gDX-Wz-v7x" secondAttribute="bottom" id="GqU-S9-Hra"/>
+                                    <constraint firstItem="g5m-vy-eZM" firstAttribute="width" secondItem="XGg-4I-et4" secondAttribute="width" id="RIs-oG-rYc"/>
+                                    <constraint firstItem="gDX-Wz-v7x" firstAttribute="leading" secondItem="XGg-4I-et4" secondAttribute="leading" id="WeM-Bi-KGE"/>
+                                    <constraint firstItem="gDX-Wz-v7x" firstAttribute="top" secondItem="XGg-4I-et4" secondAttribute="top" id="aWG-o3-eYO"/>
+                                    <constraint firstAttribute="trailing" secondItem="gDX-Wz-v7x" secondAttribute="trailing" id="cSQ-T1-2rW"/>
+                                    <constraint firstItem="g5m-vy-eZM" firstAttribute="centerX" secondItem="XGg-4I-et4" secondAttribute="centerX" id="kOu-Ml-0gT"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="XGg-4I-et4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2A8-UR-GHC"/>
+                            <constraint firstItem="XGg-4I-et4" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="Imp-FY-CMR"/>
+                            <constraint firstItem="XGg-4I-et4" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="Sge-EC-0eF"/>
+                            <constraint firstItem="XGg-4I-et4" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="k7G-0s-2RO"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="loadingOverlay" destination="XGg-4I-et4" id="wsM-Ah-FmM"/>
+                        <outlet property="logoImage" destination="g5m-vy-eZM" id="z6K-rS-kSy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="244" y="276.61169415292358"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="background" width="341" height="240"/>
+        <image name="logo-art2" width="341" height="240"/>
+    </resources>
+</document>

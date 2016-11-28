@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "B5D5390AAB353CD5FAF3CEC9E6EC5FC0D6D15EB3",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "B5D5390AAB353CD5FAF3CEC9E6EC5FC0D6D15EB3" : 0,
+    "9752C8B1E41FA5957A5A43BBEF637007AB077159" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "F9C8A838-FB67-4490-A4AD-61A536E91F86",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "B5D5390AAB353CD5FAF3CEC9E6EC5FC0D6D15EB3" : "iOS-app-rendering-mobile-compatible-websites\/",
+    "9752C8B1E41FA5957A5A43BBEF637007AB077159" : ".."
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Elegant",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Elegant.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/nenuadrian\/projects.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9752C8B1E41FA5957A5A43BBEF637007AB077159"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/nenuadrian\/iOS-app-rendering-mobile-compatible-websites.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B5D5390AAB353CD5FAF3CEC9E6EC5FC0D6D15EB3"
+    }
+  ]
+}
