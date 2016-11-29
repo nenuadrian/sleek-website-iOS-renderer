@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D6535A401DEDBB3E008DC9CC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6535A3F1DEDBB3E008DC9CC /* AVFoundation.framework */; };
 		D683CAD11CFF65FF0045BF1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D683CAD01CFF65FF0045BF1C /* AppDelegate.swift */; };
 		D683CAD31CFF65FF0045BF1C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D683CAD21CFF65FF0045BF1C /* ViewController.swift */; };
 		D683CAD61CFF65FF0045BF1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D683CAD41CFF65FF0045BF1C /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D6535A3F1DEDBB3E008DC9CC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D683CACD1CFF65FF0045BF1C /* Elegant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Elegant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D683CAD01CFF65FF0045BF1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D683CAD21CFF65FF0045BF1C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -33,17 +35,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6535A401DEDBB3E008DC9CC /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D6535A3E1DEDBB3D008DC9CC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D6535A3F1DEDBB3E008DC9CC /* AVFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D683CAC41CFF65FF0045BF1C = {
 			isa = PBXGroup;
 			children = (
 				D683CACF1CFF65FF0045BF1C /* ElegantWebsiteRenderer */,
 				D683CACE1CFF65FF0045BF1C /* Products */,
+				D6535A3E1DEDBB3D008DC9CC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};

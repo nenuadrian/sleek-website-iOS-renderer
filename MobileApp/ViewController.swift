@@ -20,7 +20,7 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
     var lastUrl: URL?
     var lastDomainUrl: URL?
     
-    var audioPlayer = AVAudioPlayer()
+     var avPlayer: AVPlayer!
     
     @IBOutlet weak var logoGoBack: UIImageView?
     @IBOutlet weak var logoImage: UIImageView?
@@ -66,6 +66,12 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
         let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(logoGoBackTapped(img:)))
         logoGoBack?.isUserInteractionEnabled = true
         logoGoBack?.addGestureRecognizer(tapGestureRecognizer)
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord, with: AVAudioSessionCategoryOptions.defaultToSpeaker)
+        } catch {
+            
+        }
     }
     
     func logoGoBackTapped(img: AnyObject)
@@ -136,11 +142,11 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
                  //   AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, error: nil)
                    // AVAudioSession.sharedInstance().setActive(true, error: nil)
                     do {
-                        try audioPlayer = AVAudioPlayer(contentsOf: alertSound as URL)
-                        audioPlayer.prepareToPlay()
-                        audioPlayer.play()
-                    } catch {
+                        try avPlayer = AVPlayer(url: alertSound as URL)
                         
+                        avPlayer.play()
+
+                    } catch {
                     }
                 }
             }
