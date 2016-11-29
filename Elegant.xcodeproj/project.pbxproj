@@ -12,6 +12,7 @@
 		D683CAD61CFF65FF0045BF1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D683CAD41CFF65FF0045BF1C /* Main.storyboard */; };
 		D683CAD81CFF65FF0045BF1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D683CAD71CFF65FF0045BF1C /* Assets.xcassets */; };
 		D683CADB1CFF65FF0045BF1C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D683CAD91CFF65FF0045BF1C /* LaunchScreen.storyboard */; };
+		D69CD75E1DED041E00288271 /* mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D69CD75D1DED041E00288271 /* mp3 */; };
 		D6E394691CFFB6950070E8AA /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = D6E394681CFFB6950070E8AA /* index.html */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,7 @@
 		D683CAD71CFF65FF0045BF1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D683CADA1CFF65FF0045BF1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D683CADC1CFF65FF0045BF1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D69CD75D1DED041E00288271 /* mp3 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = mp3; sourceTree = "<group>"; };
 		D6E394681CFFB6950070E8AA /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -56,6 +58,7 @@
 		D683CACF1CFF65FF0045BF1C /* ElegantWebsiteRenderer */ = {
 			isa = PBXGroup;
 			children = (
+				D69CD75D1DED041E00288271 /* mp3 */,
 				D6E394671CFFB6840070E8AA /* Test */,
 				D683CAD01CFF65FF0045BF1C /* AppDelegate.swift */,
 				D683CAD21CFF65FF0045BF1C /* ViewController.swift */,
@@ -136,6 +139,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D69CD75E1DED041E00288271 /* mp3 in Resources */,
 				D683CADB1CFF65FF0045BF1C /* LaunchScreen.storyboard in Resources */,
 				D6E394691CFFB6950070E8AA /* index.html in Resources */,
 				D683CAD81CFF65FF0045BF1C /* Assets.xcassets in Resources */,
@@ -272,6 +276,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MobileApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Mydeveloper.Elegant;
 				PRODUCT_NAME = Elegant;
@@ -284,6 +289,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MobileApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Mydeveloper.Elegant;
 				PRODUCT_NAME = Elegant;

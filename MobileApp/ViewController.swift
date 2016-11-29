@@ -1,5 +1,6 @@
 import UIKit
 import WebKit
+import AVFoundation
 
 class CustomWebView: WKWebView {
     override func load(_ request: URLRequest) -> WKNavigation? {
@@ -13,10 +14,13 @@ class CustomWebView: WKWebView {
 
 class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHandler, WKUIDelegate {
     let website = "http://alpha.secretrepublic.net"
+    let domain = "secretrepublic.net"
     
     var wkWebView: CustomWebView?
     var lastUrl: URL?
     var lastDomainUrl: URL?
+    
+    var audioPlayer = AVAudioPlayer()
     
     @IBOutlet weak var logoGoBack: UIImageView?
     @IBOutlet weak var logoImage: UIImageView?
@@ -27,12 +31,14 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
         
         let theConfiguration = WKWebViewConfiguration()
         theConfiguration.userContentController.add(self, name: "interOp")
-        theConfiguration.mediaPlaybackRequiresUserAction = false
-        theConfiguration.requiresUserActionForMediaPlayback = false
+        /*if #available(iOS 9.0, *) {
+            theConfiguration.requiresUserActionForMediaPlayback = false
+        } else {
+            theConfiguration.mediaPlaybackRequiresUserAction = false
+        }*/
         
         
-        wkWebView = CustomWebView(frame: self.view.frame,
-                               configuration: theConfiguration)
+        wkWebView = CustomWebView(frame: self.view.frame, configuration: theConfiguration)
         self.view.addSubview(wkWebView!)
         self.view.bringSubview(toFront: logoGoBack!)
         self.view.bringSubview(toFront: loadingOverlay!)
@@ -47,7 +53,7 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
 
         animateLogo()
         
-        wkWebView!.load(URLRequest(url: URL(string: website)!))
+        let _ = wkWebView!.load(URLRequest(url: URL(string: website)!))
         
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture(_:)))
         swipeRight.direction = UISwipeGestureRecognizerDirection.right
@@ -64,7 +70,7 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
     
     func logoGoBackTapped(img: AnyObject)
     {
-        wkWebView!.load(URLRequest(url: lastDomainUrl!))
+        let _ = wkWebView!.load(URLRequest(url: lastDomainUrl!))
     }
     
     func respondToSwipeGesture(_ gesture: UIGestureRecognizer) {
@@ -116,15 +122,38 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
     
     func userContentController(_ userContentController:
         WKUserContentController, didReceive message: WKScriptMessage) {
-        let sentData = message.body as! NSDictionary
-        runJsOnPage("callFromApp('\(sentData["message"]!)');")
+        let receivedData = message.body as! NSDictionary
+        if ((receivedData.object(forKey: "action")) != nil) {
+            if (receivedData.object(forKey: "action") as! String == "speak") {
+                print(receivedData.object(forKey: "voice") as! String)
+                let voice = receivedData.object(forKey: "voice") as! String
+                let voiceFile = Bundle.main.path(forResource: "mp3/\(voice)", ofType: "mp3")
+                print(voiceFile)
+                if (voiceFile != nil) {
+                    let alertSound = NSURL(fileURLWithPath: voiceFile!)
+                    
+                    // Removed deprecated use of AVAudioSessionDelegate protocol
+                 //   AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, error: nil)
+                   // AVAudioSession.sharedInstance().setActive(true, error: nil)
+                    do {
+                        try audioPlayer = AVAudioPlayer(contentsOf: alertSound as URL)
+                        audioPlayer.prepareToPlay()
+                        audioPlayer.play()
+                    } catch {
+                        
+                    }
+                }
+            }
+        }
+       // runJsOnPage("callFromApp('\(sentData["message"]!)');")
+        
     }
     /* // END JS CALLBACK HANDLING */
     
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
        
         if let url = webView.url {
-            if url.absoluteString.lowercased().range(of: "secretrepublic.net") != nil {
+            if url.absoluteString.lowercased().range(of: domain) != nil {
                 lastDomainUrl = url
             }
             lastUrl = url
