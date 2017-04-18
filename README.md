@@ -3,6 +3,11 @@ An elegant iOS app for rendering websites efficiently with JS callback implement
 
 An experiment to get used with auto-constraints, Swift and back and forth callbacks between WKWebView (after initially using an UIWebView) and JS.
 
+With audio play based on JS calls to save bandwidth the files are in the app.
+
+App use for Alpha.SecretRepublic.net
+
+
 # Main features
   * Framework in place to execute JS on the site from the app and call functions in the app from within the website
   * Elegant loading screen, with animated logo, fading in and out as pages load
