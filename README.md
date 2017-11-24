@@ -5,8 +5,6 @@ An experiment to get used with auto-constraints, Swift and back and forth callba
 
 With audio play based on JS calls to save bandwidth the files are in the app.
 
-App use for Alpha.SecretRepublic.net
-
 
 # Main features
   * Framework in place to execute JS on the site from the app and call functions in the app from within the website
