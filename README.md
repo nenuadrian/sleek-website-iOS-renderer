@@ -25,6 +25,9 @@ Make sure your website is mobile responsive & lets browser know it.
 # Small test
   To test the JS callbacks between the app and a site, the Test/index.html file can be uploaded to a host and accessed.
 
+# Need an Android version?
+https://github.com/nenuadrian/android-website-elegant-rendering
+
 # GNU GENERAL PUBLIC LICENSE
 The GNU GPL is the most widely used free software license and has a strong copyleft requirement. When distributing derived works, the source code of the work must be made available under the same license.
 
